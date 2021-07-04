@@ -1,28 +1,16 @@
-const {
-  isACat,
-  addNumbers,
-  introduction,
-  introducePerson,
-  dumpObject,
-  dumpStringOrNumber,
-} = require("./basic-types");
-
-console.log(isACat("cat"));
-console.log(isACat("dog"));
+"use strict";
+exports.__esModule = true;
+var basic_types_1 = require("./basic-types");
+console.log(basic_types_1.isACat("cat"));
+console.log(basic_types_1.isACat("dog"));
 console.log("");
-
-console.log(addNumbers(1, 2));
-console.log(addNumbers(1, "Jack"));
+console.log(basic_types_1.addNumbers(1, 2));
 console.log("");
-
-console.log(introduction("Jack"));
+console.log(basic_types_1.introduction("Jack"));
 console.log("");
-
-introducePerson("Molly");
+basic_types_1.introducePerson("Molly");
 console.log("");
-
-console.log(dumpObject("object", {}));
+console.log(basic_types_1.dumpObject("object", {}));
 console.log("");
-
-console.log(dumpStringOrNumber("foo"));
-console.log(dumpStringOrNumber(10));
+console.log(basic_types_1.dumpStringOrNumber("foo"));
+console.log(basic_types_1.dumpStringOrNumber(10));
