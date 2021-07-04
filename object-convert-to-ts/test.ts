@@ -1,11 +1,12 @@
-const {
+import {
   introducePerson,
   FullTime,
   isFulltimeEmployee,
   personToString,
   getProfessions,
-} = require("./objects");
+} from "./objects";
 
+// new object
 const jack = {
   name: {
     first: "Jack",

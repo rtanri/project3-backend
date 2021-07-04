@@ -1,15 +1,15 @@
 const FullTime = "FullTime";
 const Temporary = "Temporary";
 
-module.exports.FullTime = FullTime;
-module.exports.Temporary = Temporary;
+exports const FullTime = FullTime;
+exports const Temporary = Temporary;
 
-module.exports.introducePerson = person =>
-  `Hello ${person.name.first} ${person.name.middle} ${person.name.last}`;
+exports const introducePerson = (person: object) =>
+  `Hello ${person.name.first : string} ${person.name.middle: string} ${person.name.last: string}`;
 
-module.exports.isFulltimeEmployee = person => person.status === FullTime;
+exports const isFulltimeEmployee = (person:object) => person.status === FullTime;
 
-module.exports.personToString = (
+exports const personToString = (
   person = {
     status: FullTime,
     name: {
@@ -20,7 +20,7 @@ module.exports.personToString = (
   }
 ) => JSON.stringify(person, null, 2);
 
-module.exports.getProfessions = personMap =>
+exports const getProfessions = personMap =>
   Object.values(personMap)
     .map(({ profession }) => profession)
     .join("\n");
