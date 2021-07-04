@@ -1,6 +1,6 @@
 import {
   introducePerson,
-  FullTime,
+  Status,
   isFulltimeEmployee,
   personToString,
   getProfessions,
@@ -12,7 +12,7 @@ const jack = {
     first: "Jack",
     last: "Herrington",
   },
-  status: FullTime,
+  status: Status.FullTime,
   profession: "Engineer",
 };
 

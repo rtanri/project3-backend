@@ -1,17 +1,29 @@
-const FullTime = "FullTime";
-const Temporary = "Temporary";
+export const enum Status {
+  FullTime,
+  Temporary,
+}
 
-exports const FullTime = FullTime;
-exports const Temporary = Temporary;
+type Person = {
+  name: {
+    first: string;
+    middle?: string;
+    last: string;
+  };
+  status: Status;
+  profession: string;
+};
 
-exports const introducePerson = (person: object) =>
-  `Hello ${person.name.first : string} ${person.name.middle: string} ${person.name.last: string}`;
+export const introducePerson = (person?: Person) =>
+  `Hello ${person?.name?.first ?? "First"} ${
+    person?.name?.middle ?? "Middle"
+  } ${person?.name?.last ?? "Last"}`;
 
-exports const isFulltimeEmployee = (person:object) => person.status === FullTime;
+export const isFulltimeEmployee = (person: Person) =>
+  person.status === Status.FullTime;
 
-exports const personToString = (
-  person = {
-    status: FullTime,
+export const personToString = (
+  person: Person = {
+    status: Status.FullTime,
     name: {
       first: "unknown",
       last: "unknown",
@@ -20,7 +32,9 @@ exports const personToString = (
   }
 ) => JSON.stringify(person, null, 2);
 
-exports const getProfessions = personMap =>
+type PersonMap = { [key: number]: Person };
+
+export const getProfessions = (personMap: PersonMap) =>
   Object.values(personMap)
     .map(({ profession }) => profession)
     .join("\n");
