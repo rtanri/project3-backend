@@ -1,29 +1,41 @@
-import UseStateComponent from "./UseStateComponent";
-import UseEffectComponent from "./UseEffectComponent";
-import UseContextComponent from "./UseContextComponent";
-import UseReducerComponent from "./UseReducerComponent";
-import UseRefComponent from "./UseRefComponent";
-import CustomHookComponent from "./CustomHookComponent";
+import React, { ReactElement, ReactNode } from "react";
+import "./App.css";
 
-import EvenMoreReactComponent from "./EvenMoreReactComponent";
+// conventional props - 5:30
+function Heading({ title }: { title?: string }) {
+  return <h1>{title}</h1>;
+}
+
+// ReactNode take any types of input(not only string), and returing ReactElement
+// prettier-ignore
+function HeadingWithContent({children}: {children: ReactNode;}): ReactElement {
+  return <h1>{children}</h1>;
+}
+
+// defaultProps - 10:30
+const defaultContainerProps = {
+  heading: <strong>My Heading</strong>,
+};
+type ContainerProps = {};
+
+// prettier-ignore
+function Container({heading, children}: {children: ReactNode} & typeof defaultContainerProps): ReactElement {
+  return <div>
+    <h1>{heading}</h1>
+    {children}
+    </div>;
+}
+
+Container.defaultProps = defaultContainerProps;
 
 function App() {
   return (
     <div>
-      <h1>Even more React component TS stuff</h1>
-      <EvenMoreReactComponent />
-      <h1>Custom Hook</h1>
-      <CustomHookComponent />
-      <h1>useRef</h1>
-      <UseRefComponent />
-      <h1>useReducer</h1>
-      <UseReducerComponent />
-      <h1>useContext</h1>
-      <UseContextComponent />
-      <h1>useEffect</h1>
-      <UseEffectComponent />
-      <h1>useState</h1>
-      <UseStateComponent />
+      <Heading title="Hello there" />
+      <HeadingWithContent>
+        <em>Helo boy</em>
+      </HeadingWithContent>
+      <Container>Foo</Container>
     </div>
   );
 }
